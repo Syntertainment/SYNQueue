@@ -19,6 +19,7 @@
 		9FD63FC51B338BA5001BD09A /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FC41B338BA5001BD09A /* TaskCell.swift */; };
 		9FD63FC71B33EA2F001BD09A /* NSUserDefaultsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FC61B33EA2F001BD09A /* NSUserDefaultsSerializer.swift */; };
 		9FD63FCD1B3417DF001BD09A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FCC1B3417DF001BD09A /* Utils.swift */; };
+		DC6668E61B8CC7090045852A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6668E51B8CC7090045852A /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		9FD63FC41B338BA5001BD09A /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		9FD63FC61B33EA2F001BD09A /* NSUserDefaultsSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultsSerializer.swift; sourceTree = "<group>"; };
 		9FD63FCC1B3417DF001BD09A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DC6668E51B8CC7090045852A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				9FD63F961B333BDC001BD09A /* AppDelegate.swift */,
 				9F70B5021B368AB500BDB945 /* ConsoleLogger.swift */,
 				9FD63F981B333BDC001BD09A /* ViewController.swift */,
+				DC6668E51B8CC7090045852A /* SettingsViewController.swift */,
 				9FD63F9A1B333BDC001BD09A /* Main.storyboard */,
 				9FD63F9F1B333BDC001BD09A /* LaunchScreen.xib */,
 				9FD63FC41B338BA5001BD09A /* TaskCell.swift */,
@@ -188,6 +191,7 @@
 		9FD63F891B333BDC001BD09A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Syntertainment;
 				TargetAttributes = {
@@ -247,6 +251,7 @@
 			files = (
 				9FD63FCD1B3417DF001BD09A /* Utils.swift in Sources */,
 				9FD63F991B333BDC001BD09A /* ViewController.swift in Sources */,
+				DC6668E61B8CC7090045852A /* SettingsViewController.swift in Sources */,
 				9FD63FC51B338BA5001BD09A /* TaskCell.swift in Sources */,
 				9F70B5031B368AB500BDB945 /* ConsoleLogger.swift in Sources */,
 				9FD63F971B333BDC001BD09A /* AppDelegate.swift in Sources */,

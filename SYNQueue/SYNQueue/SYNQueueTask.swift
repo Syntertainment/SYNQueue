@@ -9,6 +9,7 @@
 import Foundation
 
 public typealias SYNTaskCallback = (SYNQueueTask) -> Void
+public typealias SYNTaskCoalescingCallback = ([SYNQueueTask]) -> SYNQueueTask
 public typealias SYNTaskCompleteCallback = (NSError?, SYNQueueTask) -> Void
 public typealias JSONDictionary = [String: AnyObject?]
 
@@ -196,7 +197,7 @@ public class SYNQueueTask : NSOperation {
         
         // Convert the dictionary to an NSDictionary by replacing nil values
         // with NSNull
-        var nsdict = NSMutableDictionary(capacity: dict.count)
+        let nsdict = NSMutableDictionary(capacity: dict.count)
         for (key, value) in dict {
             nsdict[key] = value ?? NSNull()
         }

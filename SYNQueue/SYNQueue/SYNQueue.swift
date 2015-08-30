@@ -67,6 +67,7 @@ public class SYNQueue : NSOperationQueue {
     let logProvider: SYNQueueLogProvider?
     var tasksMap = [String: SYNQueueTask]()
     var taskHandlers = [String: SYNTaskCallback]()
+    var taskCoalescingHandlers = [String: SYNTaskCoalescingCallback]()
     let completionBlock: SYNTaskCompleteCallback?
     
     public var tasks: [SYNQueueTask] {
@@ -121,6 +122,16 @@ public class SYNQueue : NSOperationQueue {
     }
     
     /**
+    Add a coalescing handler for a task type. This will give an array of tasks to the callback (all of the same type) which must all be completed by the handler.
+    
+    :param: taskType              The task type for the handler
+    :param: taskCoalescingHandler The coalescing handler for this particular task type, must be able to take multiple tasks, coalesce them, and complete them all.
+    */
+    public func addTaskCoalescingHandler(taskType: String, taskCoalescingHandler:SYNTaskCoalescingCallback) {
+        taskCoalescingHandlers[taskType] = taskCoalescingHandler
+    }
+    
+    /**
     Deserializes tasks that were serialized (persisted)
     */
     public func loadSerializedTasks() {
@@ -144,7 +155,24 @@ public class SYNQueue : NSOperationQueue {
     :param: op A SYNQueueTask to execute on the queue
     */
     override public func addOperation(op: NSOperation) {
-        if let task = op as? SYNQueueTask {
+        if var task = op as? SYNQueueTask {
+            
+            // If this task type has coalescing block
+                // If there are other non-started task in the queue that are of the same type
+                    // Call the task coalescing handler with an array of the other non-started
+                    // tasks of the same task type in the queue
+            
+            if let coalescingHandler = taskCoalescingHandlers[task.taskType] {
+                var tasksToCoalesce = self.tasks.filter({ return ($0.taskType == task.taskType && !$0.executing && $0.taskID != task.taskID && $0.dependencies.count == 0) })
+                if tasksToCoalesce.count > 0 {
+                    tasksToCoalesce.append(task)
+                    task = coalescingHandler(tasksToCoalesce) // Overwrite task to the new coalesced task and continue
+                    
+                    // Cancel tasks that have now been coalesced
+                    for task in tasksToCoalesce { task.cancel() }
+                }
+            }
+            
             if tasksMap[task.taskID] != nil {
                 log(.Warning, "Attempted to add duplicate task \(task.taskID)")
                 return
@@ -155,10 +183,10 @@ public class SYNQueue : NSOperationQueue {
             if let sp = serializationProvider, let queueName = task.queue.name {
                 sp.serializeTask(task, queueName: queueName)
             }
+            
+            op.completionBlock = { self.taskComplete(task) }
+            super.addOperation(task)
         }
-        
-        op.completionBlock = { self.taskComplete(op) }
-        super.addOperation(op)
     }
     
     func addDeserializedTask(task: SYNQueueTask) {
@@ -172,6 +200,7 @@ public class SYNQueue : NSOperationQueue {
     }
     
     func runTask(task: SYNQueueTask) {
+        
         if let handler = taskHandlers[task.taskType] {
             handler(task)
         } else {
