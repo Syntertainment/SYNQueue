@@ -5,31 +5,24 @@
 
 import Foundation
 
-func runInBackgroundAfter(seconds: NSTimeInterval, callback:dispatch_block_t) {
-    let delta = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds) * Int64(NSEC_PER_SEC))
-    dispatch_after(delta, dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), callback)
+func runInBackgroundAfter(_ seconds: TimeInterval, callback:@escaping ()->()) {
+    let delta = DispatchTime.now() + Double(Int64(seconds) * Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC)
+    DispatchQueue.global(qos: DispatchQoS.QoSClass.background).asyncAfter(deadline: delta, execute: callback)
 }
 
-func synced(lock: AnyObject, closure: () -> ()) {
-    objc_sync_enter(lock)
-    closure()
-    objc_sync_exit(lock)
+func runOnMainThread(_ callback:@escaping ()->()) {
+    DispatchQueue.main.async(execute: callback)
 }
 
-func runOnMainThread(callback:dispatch_block_t) {
-    dispatch_async(dispatch_get_main_queue(), callback)
+func toJSON(_ obj: Any) throws -> String? {
+    let json = try JSONSerialization.data(withJSONObject: obj, options: [])
+    return NSString(data: json, encoding: String.Encoding.utf8.rawValue) as String?
 }
 
-func toJSON(obj: AnyObject) throws -> String? {
-    let json = try NSJSONSerialization.dataWithJSONObject(obj, options: [])
-    return NSString(data: json, encoding: NSUTF8StringEncoding) as String?
-}
-
-func fromJSON(str: String) throws -> AnyObject? {
-    if let json = str.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-            let obj: AnyObject = try NSJSONSerialization.JSONObjectWithData(json, options: .AllowFragments)
-            return obj
+func fromJSON(_ str: String) throws -> Any? {
+    if let json = str.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+        let obj: Any = try JSONSerialization.jsonObject(with: json, options: .allowFragments) as Any
+        return obj
     }
-    
     return nil
 }

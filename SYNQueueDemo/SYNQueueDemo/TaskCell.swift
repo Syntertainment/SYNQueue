@@ -13,13 +13,13 @@ class TaskCell : UICollectionViewCell {
     
     weak var task: SYNQueueTask? = nil
     
-    @IBAction func succeedTapped(sender: UIButton) {
+    @IBAction func succeedTapped(_ sender: UIButton) {
         if let task = task {
             task.completed(nil)
         }
     }
     
-    @IBAction func failTapped(sender: UIButton) {
+    @IBAction func failTapped(_ sender: UIButton) {
         if let task = task {
             let err = error("User tapped Fail on task \(task.taskID)")
             task.completed(err)

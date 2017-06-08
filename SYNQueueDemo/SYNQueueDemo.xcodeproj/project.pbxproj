@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EB0B1B31EE7E85E00B43FB0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0B1B21EE7E85E00B43FB0 /* Reachability.swift */; };
 		9F70B5031B368AB500BDB945 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F70B5021B368AB500BDB945 /* ConsoleLogger.swift */; };
 		9FD63F971B333BDC001BD09A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63F961B333BDC001BD09A /* AppDelegate.swift */; };
 		9FD63F991B333BDC001BD09A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63F981B333BDC001BD09A /* ViewController.swift */; };
 		9FD63F9E1B333BDC001BD09A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD63F9D1B333BDC001BD09A /* Images.xcassets */; };
 		9FD63FA11B333BDC001BD09A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD63F9F1B333BDC001BD09A /* LaunchScreen.xib */; };
 		9FD63FAD1B333BDC001BD09A /* SYNQueueDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FAC1B333BDC001BD09A /* SYNQueueDemoTests.swift */; };
-		9FD63FB91B333E15001BD09A /* SYNQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD63FB81B333E15001BD09A /* SYNQueue.framework */; };
-		9FD63FBA1B333E15001BD09A /* SYNQueue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD63FB81B333E15001BD09A /* SYNQueue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9FD63FC51B338BA5001BD09A /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FC41B338BA5001BD09A /* TaskCell.swift */; };
-		9FD63FC71B33EA2F001BD09A /* NSUserDefaultsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FC61B33EA2F001BD09A /* NSUserDefaultsSerializer.swift */; };
+		9FD63FC71B33EA2F001BD09A /* UserDefaultsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FC61B33EA2F001BD09A /* UserDefaultsSerializer.swift */; };
 		9FD63FCD1B3417DF001BD09A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FCC1B3417DF001BD09A /* Utils.swift */; };
-		DC67E47E1BB0F01200F3D9E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC67E47D1BB0F01200F3D9E2 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		DC67E4801BB0F1BD00F3D9E2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC67E47F1BB0F1BD00F3D9E2 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DC67E47E1BB0F01200F3D9E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC67E47D1BB0F01200F3D9E2 /* Main.storyboard */; };
+		DC67E4801BB0F1BD00F3D9E2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC67E47F1BB0F1BD00F3D9E2 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9FD63FBA1B333E15001BD09A /* SYNQueue.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0EB0B1B21EE7E85E00B43FB0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9F70B5021B368AB500BDB945 /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		9FD63F911B333BDC001BD09A /* SYNQueueDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYNQueueDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD63F951B333BDC001BD09A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,9 +56,8 @@
 		9FD63FA61B333BDC001BD09A /* SYNQueueDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SYNQueueDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD63FAB1B333BDC001BD09A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FD63FAC1B333BDC001BD09A /* SYNQueueDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SYNQueueDemoTests.swift; sourceTree = "<group>"; };
-		9FD63FB81B333E15001BD09A /* SYNQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SYNQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD63FC41B338BA5001BD09A /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		9FD63FC61B33EA2F001BD09A /* NSUserDefaultsSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultsSerializer.swift; sourceTree = "<group>"; };
+		9FD63FC61B33EA2F001BD09A /* UserDefaultsSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsSerializer.swift; sourceTree = "<group>"; };
 		9FD63FCC1B3417DF001BD09A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DC67E47D1BB0F01200F3D9E2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DC67E47F1BB0F1BD00F3D9E2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FD63FB91B333E15001BD09A /* SYNQueue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +84,6 @@
 		9FD63F881B333BDC001BD09A = {
 			isa = PBXGroup;
 			children = (
-				9FD63FB81B333E15001BD09A /* SYNQueue.framework */,
 				9FD63F931B333BDC001BD09A /* SYNQueueDemo */,
 				9FD63FA91B333BDC001BD09A /* SYNQueueDemoTests */,
 				9FD63F921B333BDC001BD09A /* Products */,
@@ -109,13 +105,14 @@
 				9FD63F9D1B333BDC001BD09A /* Images.xcassets */,
 				9FD63F941B333BDC001BD09A /* Supporting Files */,
 				9FD63F961B333BDC001BD09A /* AppDelegate.swift */,
+				0EB0B1B21EE7E85E00B43FB0 /* Reachability.swift */,
 				9F70B5021B368AB500BDB945 /* ConsoleLogger.swift */,
 				9FD63F981B333BDC001BD09A /* ViewController.swift */,
 				DC67E47F1BB0F1BD00F3D9E2 /* SettingsViewController.swift */,
 				DC67E47D1BB0F01200F3D9E2 /* Main.storyboard */,
 				9FD63F9F1B333BDC001BD09A /* LaunchScreen.xib */,
 				9FD63FC41B338BA5001BD09A /* TaskCell.swift */,
-				9FD63FC61B33EA2F001BD09A /* NSUserDefaultsSerializer.swift */,
+				9FD63FC61B33EA2F001BD09A /* UserDefaultsSerializer.swift */,
 				9FD63FCC1B3417DF001BD09A /* Utils.swift */,
 			);
 			path = SYNQueueDemo;
@@ -193,15 +190,17 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Syntertainment;
 				TargetAttributes = {
 					9FD63F901B333BDC001BD09A = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = SBKBKHJ464;
+						LastSwiftMigration = 0830;
 					};
 					9FD63FA51B333BDC001BD09A = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0830;
 						TestTargetID = 9FD63F901B333BDC001BD09A;
 					};
 				};
@@ -256,7 +255,8 @@
 				9FD63FC51B338BA5001BD09A /* TaskCell.swift in Sources */,
 				9F70B5031B368AB500BDB945 /* ConsoleLogger.swift in Sources */,
 				9FD63F971B333BDC001BD09A /* AppDelegate.swift in Sources */,
-				9FD63FC71B33EA2F001BD09A /* NSUserDefaultsSerializer.swift in Sources */,
+				0EB0B1B31EE7E85E00B43FB0 /* Reachability.swift in Sources */,
+				9FD63FC71B33EA2F001BD09A /* UserDefaultsSerializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +303,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -348,8 +351,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -368,6 +373,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -376,28 +382,32 @@
 		9FD63FB11B333BDC001BD09A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SYNQueueDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		9FD63FB21B333BDC001BD09A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SYNQueueDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -411,7 +421,9 @@
 				);
 				INFOPLIST_FILE = SYNQueueDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SYNQueueDemo.app/SYNQueueDemo";
 			};
 			name = Debug;
@@ -422,7 +434,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SYNQueueDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SYNQueueDemo.app/SYNQueueDemo";
 			};
 			name = Release;

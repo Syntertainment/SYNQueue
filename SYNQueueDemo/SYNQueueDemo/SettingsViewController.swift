@@ -16,15 +16,15 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.dependencySwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kAddDependencySettingKey)
-        self.autocompleteTaskSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kAutocompleteTaskSettingKey)
+        self.dependencySwitch.isOn = UserDefaults.standard.bool(forKey: kAddDependencySettingKey)
+        self.autocompleteTaskSwitch.isOn = UserDefaults.standard.bool(forKey: kAutocompleteTaskSettingKey)
     }
     
-    @IBAction func addDependencySwitchToggled(sender: UISwitch) {
-        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: kAddDependencySettingKey)
+    @IBAction func addDependencySwitchToggled(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: kAddDependencySettingKey)
     }
     
-    @IBAction func autocompleteTaskSwitchToggled(sender: UISwitch) {
-        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: kAutocompleteTaskSettingKey)
+    @IBAction func autocompleteTaskSwitchToggled(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: kAutocompleteTaskSettingKey)
     }
 }

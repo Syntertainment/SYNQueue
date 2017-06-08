@@ -12,10 +12,10 @@
 		9FD63F871B333B81001BD09A /* SYNQueueTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63F861B333B81001BD09A /* SYNQueueTask.swift */; };
 		9FD63FBF1B334316001BD09A /* NSDate+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FBE1B334316001BD09A /* NSDate+Utils.swift */; };
 		9FD63FC11B335579001BD09A /* SYNQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD63FC01B335579001BD09A /* SYNQueue.swift */; };
-		DCD110DA1BBA166B003AF0F0 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD110D81BBA166B003AF0F0 /* ConsoleLogger.swift */; settings = {ASSET_TAGS = (); }; };
-		DCD110DB1BBA166B003AF0F0 /* NSUserDefaultsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD110D91BBA166B003AF0F0 /* NSUserDefaultsSerializer.swift */; settings = {ASSET_TAGS = (); }; };
+		DCD110DA1BBA166B003AF0F0 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD110D81BBA166B003AF0F0 /* ConsoleLogger.swift */; };
+		DCD110DB1BBA166B003AF0F0 /* UserDefaultsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD110D91BBA166B003AF0F0 /* UserDefaultsSerializer.swift */; };
 		DCD110E01BBA2F1E003AF0F0 /* SYNQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F62022B1B333AAF0026CE2C /* SYNQueue.framework */; };
-		DCD110E21BBA2FB0003AF0F0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD110E11BBA2FB0003AF0F0 /* Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		DCD110E21BBA2FB0003AF0F0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD110E11BBA2FB0003AF0F0 /* Utils.swift */; };
 		DCD110E31BBA2FBC003AF0F0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD110E11BBA2FB0003AF0F0 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		9FD63FBE1B334316001BD09A /* NSDate+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Utils.swift"; sourceTree = "<group>"; };
 		9FD63FC01B335579001BD09A /* SYNQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYNQueue.swift; sourceTree = "<group>"; };
 		DCD110D81BBA166B003AF0F0 /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
-		DCD110D91BBA166B003AF0F0 /* NSUserDefaultsSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultsSerializer.swift; sourceTree = "<group>"; };
+		DCD110D91BBA166B003AF0F0 /* UserDefaultsSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsSerializer.swift; sourceTree = "<group>"; };
 		DCD110E11BBA2FB0003AF0F0 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DCD110D81BBA166B003AF0F0 /* ConsoleLogger.swift */,
-				DCD110D91BBA166B003AF0F0 /* NSUserDefaultsSerializer.swift */,
+				DCD110D91BBA166B003AF0F0 /* UserDefaultsSerializer.swift */,
 				9F62023C1B333AAF0026CE2C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -179,14 +179,16 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Syntertainment;
 				TargetAttributes = {
 					9F62022A1B333AAF0026CE2C = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0830;
 					};
 					9F6202351B333AAF0026CE2C = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -242,7 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCD110E31BBA2FBC003AF0F0 /* Utils.swift in Sources */,
-				DCD110DB1BBA166B003AF0F0 /* NSUserDefaultsSerializer.swift in Sources */,
+				DCD110DB1BBA166B003AF0F0 /* UserDefaultsSerializer.swift in Sources */,
 				DCD110DA1BBA166B003AF0F0 /* ConsoleLogger.swift in Sources */,
 				9F62023E1B333AAF0026CE2C /* SYNQueueTests.swift in Sources */,
 			);
@@ -272,8 +274,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -281,6 +285,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -320,8 +325,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -341,6 +348,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -353,6 +361,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -362,9 +371,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -373,6 +384,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -382,8 +394,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -397,7 +411,9 @@
 				);
 				INFOPLIST_FILE = SYNQueueTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -407,7 +423,9 @@
 				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = SYNQueueTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SYNQueue.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

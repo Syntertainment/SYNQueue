@@ -10,7 +10,7 @@ import XCTest
 class SYNQueueTests: XCTestCase {
     
     var logger = ConsoleLogger()
-    var serializer = NSUserDefaultsSerializer()
+    var serializer = UserDefaultsSerializer()
     let testTaskType = "testTaskType"
     
     override func setUp() {
@@ -18,7 +18,7 @@ class SYNQueueTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         logger = ConsoleLogger()
-        serializer = NSUserDefaultsSerializer()
+        serializer = UserDefaultsSerializer()
         
     }
     
@@ -43,7 +43,7 @@ class SYNQueueTests: XCTestCase {
     
     func testTaskCompletion() {
         
-        let taskCompletionExpectation = expectationWithDescription("taskCompletion")
+        let taskCompletionExpectation = expectation(description: "taskCompletion")
         
         let queue = SYNQueue(queueName: randomQueueName(), maxConcurrency: 3, maxRetries: 2, logProvider: logger, serializationProvider: serializer) { (error: NSError?, task: SYNQueueTask) -> Void in
             taskCompletionExpectation.fulfill()
@@ -55,7 +55,7 @@ class SYNQueueTests: XCTestCase {
         
         XCTAssert(queue.operationCount == 1)
         
-        waitForExpectationsWithTimeout(5, handler: { error in
+        waitForExpectations(timeout: 5, handler: { error in
             XCTAssertNil(error, "Error")
         })
     }
@@ -70,7 +70,7 @@ class SYNQueueTests: XCTestCase {
         
         // Add a task to the queue
         queue!.addTaskHandler(testTaskType) {
-            NSThread.sleepForTimeInterval(2)
+            Thread.sleep(forTimeInterval: 2)
             $0.completed(nil)
         }
         let task = SYNQueueTask(queue: queue!, taskType: testTaskType)
@@ -86,7 +86,7 @@ class SYNQueueTests: XCTestCase {
         queue2.loadSerializedTasks()
         XCTAssert(queue2.operationCount == 1)
         
-        let serializedTasks = queue2.serializationProvider?.deserializeTasksInQueue(queue2)
+        let serializedTasks = queue2.serializationProvider?.deserializeTasks(queue2)
         serializedTasks?.forEach({ (task: SYNQueueTask) -> () in
             queue2.serializationProvider?.removeTask(task.taskID, queue: queue2)
         })
@@ -98,12 +98,12 @@ class SYNQueueTests: XCTestCase {
         }
         
         queue.addTaskHandler(testTaskType) {
-            NSThread.sleepForTimeInterval(1)
+            Thread.sleep(forTimeInterval: 1)
             $0.completed(nil)
         }
         let task = SYNQueueTask(queue: queue, taskType: testTaskType)
 
-        self.measureBlock() {
+        self.measure() {
             queue.addOperation(task)
         }
     }
@@ -111,5 +111,7 @@ class SYNQueueTests: XCTestCase {
 
 // MARK: Helper methods
 func randomQueueName() -> String {
-    return NSUUID().UUIDString
+    return UUID().uuidString
 }
+
+
